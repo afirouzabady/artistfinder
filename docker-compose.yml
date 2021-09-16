@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  vvc-ui:
+    image: registry.coudata.com/artistfinder
+    container_name: artistfinder
+    restart: always
+    ports:
+      - "8013:80"
