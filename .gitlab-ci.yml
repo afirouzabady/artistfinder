@@ -1,0 +1,47 @@
+
+stages:
+  - build
+  - deploy
+
+build_job:
+  stage: build
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  # Default branch leaves tag empty (= latest tag)
+  # All other branches are tagged with the escaped branch name (commit ref slug)
+  script:
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      elif [[ "$CI_COMMIT_BRANCH" == 'nightly' ]]; then
+        tag="nightly"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
+    - |
+       if [[ "$CI_COMMIT_BRANCH" == 'nightly' ]]; then
+          docker build -f Dockerfile.nightly --pull -t "$CI_REGISTRY_IMAGE:nightly" .
+       else 
+          docker build --pull -t "$CI_REGISTRY_IMAGE${tag}" . 
+       fi  
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+          docker push "$CI_REGISTRY_IMAGE${tag}"
+      else
+         docker push "$CI_REGISTRY_IMAGE:nightly"
+      fi
+  # Run this job in a branch where a Dockerfile exists
+  tags:
+    - production
+deploy_nightly:
+  stage: deploy
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - sudo docker-compose pull && sudo docker-compose  up --force-recreate -d        
+ 
+  only:
+    - master
+  tags:
+    - production
+  when: manual
