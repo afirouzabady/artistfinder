@@ -5,4 +5,4 @@ services:
     container_name: artistfinder
     restart: always
     ports:
-      - "8013:80"
+      - "8045:80"

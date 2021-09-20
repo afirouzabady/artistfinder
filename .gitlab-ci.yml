@@ -10,26 +10,8 @@ build_job:
   # Default branch leaves tag empty (= latest tag)
   # All other branches are tagged with the escaped branch name (commit ref slug)
   script:
-    - |
-      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
-        tag=""
-        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
-      elif [[ "$CI_COMMIT_BRANCH" == 'nightly' ]]; then
-        tag="nightly"
-        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
-      fi
-    - |
-       if [[ "$CI_COMMIT_BRANCH" == 'nightly' ]]; then
-          docker build -f Dockerfile.nightly --pull -t "$CI_REGISTRY_IMAGE:nightly" .
-       else 
-          docker build --pull -t "$CI_REGISTRY_IMAGE${tag}" . 
-       fi  
-    - |
-      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
-          docker push "$CI_REGISTRY_IMAGE${tag}"
-      else
-         docker push "$CI_REGISTRY_IMAGE:nightly"
-      fi
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" .        
+    -  docker push "$CI_REGISTRY_IMAGE"
   # Run this job in a branch where a Dockerfile exists
   tags:
     - production
