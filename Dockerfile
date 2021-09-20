@@ -1,21 +1,15 @@
-FROM registry.coudata.com/node:14.17.0-alpine as builder
-
-# set the working dir for container
-WORKDIR /frontend
-
-# copy the json file first
-COPY package*.json /frontend/
-COPY package-lock.json  /frontend/
-
-# install npm dependencies
-RUN npm install
-
-# copy other project files
-COPY . .
-# build the folder
+FROM node:14.17.0-alpine as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm ci --silent
+RUN npm install react-scripts@3.4.1 -g --silent
+COPY . ./
 RUN npm run build
 
-# Handle Nginx
-FROM registry.coudata.com/nginx:1.15.2-alpine
-COPY --from=builder /frontend/build /usr/share/nginx/html
-COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+# production environment
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
