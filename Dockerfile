@@ -6,14 +6,12 @@ WORKDIR /frontend
 # copy the json file first
 COPY package*.json /frontend/
 COPY package-lock.json  /frontend/
-COPY craco.config.js  /frontend/
 
 # install npm dependencies
 RUN npm install
 
 # copy other project files
 COPY . .
-Copy .env.nightly /frontend/.env
 # build the folder
 RUN npm run build
 
