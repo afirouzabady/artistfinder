@@ -17,10 +17,9 @@ export default function Routing({pos}) {
     const routingControl = L.Routing.control({
       waypoints: [L.latLng(42.1513917,24.7518429), L.latLng(42.1461055,24.7523223) ],
       routeWhileDragging: false,
-      lineOptions : {
-        addWaypoints: false
-    },
-      addWaypoints:false
+      addWaypoints:false,
+      draggableWaypoints:false
+      
     }).addTo(map);
 
     return () => map.removeControl(routingControl);
