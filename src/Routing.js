@@ -22,14 +22,14 @@ export default function Routing({ pos }) {
   var pointA7 = new L.LatLng(42.1498821, 24.752088);
   var pointA8 = new L.LatLng(42.1498543, 24.7517316);
   var pointA9 = new L.LatLng(42.1493502, 24.7512481);
-  var pointA10 = new L.LatLng(42.1491302, 24.7510335);
+  var pointA10 = new L.LatLng(42.1491302, 24.7510015);
   var pointA11 = new L.LatLng(42.1490071, 24.7507278);
   var pointA12 = new L.LatLng(42.148504, 24.7508233);
   var pointA13 = new L.LatLng(42.1464868, 24.7513463);
-  var pointA14 = new L.LatLng(42.1460398, 24.7514965);
-  var pointA15 = new L.LatLng(42.1455053, 24.7514219);
-  var pointA16 = new L.LatLng(42.1459829, 24.7522539);
-  var pointA17 = new L.LatLng(42.1461055, 24.7523223);
+  // var pointA14 = new L.LatLng(42.1460398, 24.7514965);
+  // var pointA15 = new L.LatLng(42.1455053, 24.7514219);
+  var pointA16 = new L.LatLng(42.1461421249647, 24.751389687387558);
+  var pointA17 = new L.LatLng(42.14600037075263, 24.75210997935969);
 
   var pointB = new L.LatLng(42.1461055, 24.7523223);
   var pointList = [
@@ -47,8 +47,8 @@ export default function Routing({ pos }) {
     pointA11,
     pointA12,
     pointA13,
-    pointA14,
-    pointA15,
+    // pointA14,
+    // pointA15,
     pointA16,
     pointA17,
     pointB,
