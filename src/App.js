@@ -57,19 +57,7 @@ function App() {
   return (
     <div className="App">
       <div className="video-section">
-        <iframe
-          src="https://vimeo.com/manage/videos/614362201"
-          width="100%"
-          height="100%"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-        <p>
-          <a href="https://vimeo.com/10528962">Art and Art History</a> from{" "}
-          <a href="https://vimeo.com/jesseborkowski">Jesse Borkowski</a> on{" "}
-          <a href="https://vimeo.com">Vimeo</a>.
-        </p>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/WjqEIXn2hcA?controls=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allow='autoplay' allowfullscreen></iframe>
       </div>
       <div className="map-section">
         <MapContainer center={position} zoom={16} style={{ height: "100vh" }}>
