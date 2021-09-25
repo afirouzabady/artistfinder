@@ -85,9 +85,9 @@ export default function Routing({ pos }) {
     if (!map) return;
 
     const routingControl = new L.Polyline(pointList, {
-      color: "blue",
+      color: "#ff000d",
       weight: 6,
-      opacity: 0.5,
+      opacity: 1,
       smoothFactor: 1,
     }).addTo(map);
 

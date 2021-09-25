@@ -58,7 +58,7 @@ function App() {
     <div className="App">
       <div className="video-section">
         <iframe
-          src="https://player.vimeo.com/video/10528962?h=277b919f00&color=f9fc1e"
+          src="https://vimeo.com/manage/videos/614362201"
           width="100%"
           height="100%"
           frameborder="0"
@@ -86,7 +86,10 @@ function App() {
       </div>
 
       <div className="text-section">
-        <p>past your text here </p>
+        <p>
+          Кой контролира контролиращите, или запис от моето преминаване Who
+          Controls the Controllers; Or a Record of My Passing By (2009-21)
+        </p>
       </div>
     </div>
   );
