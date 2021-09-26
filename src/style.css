@@ -29,9 +29,9 @@ body,
   height: 100px;
   text-align: center;
   padding: 15px;
-  background-color: #0000ff;
+  background-color: #75fbc1;
   color: #ff000d;
-  font-size: 28px;
+  font-size: 1em;
   /* height: 20%; */
 }
 .leaflet-routing-container.leaflet-bar.leaflet-control {
