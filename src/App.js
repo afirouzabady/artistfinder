@@ -76,7 +76,7 @@ function App() {
       <div className="text-section">
         <p>
           Кой контролира контролиращите, или запис от моето преминаване
-          <br /> Who Controls the Controllers; Or a Record of My Passing By
+        </p><br /><p>Who Controls the Controllers; Or a Record of My Passing By
           (2009-21)
         </p>
       </div>
