@@ -26,12 +26,12 @@ body,
   /* height: 40%; */
 }
 .text-section {
-  height: 100px;
+  height: 150px;
   text-align: center;
-  padding: 15px;
-  background-color: #75fbc1;
-  color: #ff000d;
-  font-size: 1em;
+  padding: 10px;
+  background-color: #1001f4;
+  color: #75fbc1;
+  font-size: 1.1em;
   /* height: 20%; */
 }
 .leaflet-routing-container.leaflet-bar.leaflet-control {
