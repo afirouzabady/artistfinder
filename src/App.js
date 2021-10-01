@@ -57,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <div className="video-section">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/WjqEIXn2hcA?controls=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allow='autoplay' allowfullscreen></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/MBEwMDoLVRQ?controls=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allow='autoplay' allowfullscreen></iframe>
       </div>
       <div className="map-section">
         <MapContainer center={position} zoom={16} style={{ height: "100vh" }}>
